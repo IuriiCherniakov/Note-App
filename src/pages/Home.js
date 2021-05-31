@@ -1,16 +1,26 @@
-import {Fragment} from "react";
+import {Fragment, useContext, useEffect} from "react";
 import {Form} from "../components/Form";
 import {Notes} from "../components/Notes";
+import {FirebaseContext} from "../context/firebase/firebaseContext";
+import {Loader} from "../components/Loader";
 
-export default function Home(){
-    const notes = new Array(3)
-        .fill('')
-        .map((_, i) => ({id: Math.random(), title: `Note${i + 1}`}))
+export const Home = () => {
+    const {loading, notes, fetchNotes} = useContext(FirebaseContext)
+
+    useEffect(() => {
+        fetchNotes()
+    }, [])
+
     return(
         <Fragment>
             <Form/>
 
             <hr/>
+
+            {loading
+                ? <Loader/>
+                : <Notes/>
+            }
 
             <Notes notes={notes}/>
 
