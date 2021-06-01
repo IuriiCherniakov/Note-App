@@ -10,20 +10,21 @@ export const Form = () => {
 
     const submitHandler = event => {
         event.preventDefault()
-    if(value.trim()) {
-        firebase.addNote(value.trim()).then(()=>{
-            alert.show('Note was created', 'success')
+        if (value.trim()) {
+            firebase.addNote(value.trim()).then(() => {
+                alert.show('Note was created', 'success')
 
-        }). catch(alert.show('Something wrong', 'danger')
-        )
-        setValue('')
-    }else{
-        alert.show('Type the note')
+            }).catch(()=> {
+                alert.show('Something wrong', 'danger')
+            })
+            setValue('')
+        } else {
+            alert.show('Type the note')
+        }
     }
-    }
 
 
-    return(
+    return (
 
         <form onSubmit={submitHandler}>
             <div className="form-group">
