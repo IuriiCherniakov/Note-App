@@ -1,10 +1,10 @@
 import {FirebaseContext} from "./firebaseContext";
 import {useReducer} from "react";
 import {firebaseReducer} from "./firebaseReducer";
-import {ADD_NOTE, REMOVE_NOTE, SHOW_LOADER} from "../Types";
+import {ADD_NOTE, FETCH_NOTES, REMOVE_NOTE, SHOW_LOADER} from "../Types";
 import axios from "axios";
 
-const url = process.env.REACT_APP_DB_URL
+// const url = process.env.REACT_APP_DB_URL
 
 export const FireBaseState = ({children}) => {
     const initialState = {
@@ -25,6 +25,8 @@ export const FireBaseState = ({children}) => {
                 id: key
             }
         })
+
+        dispatch({type: FETCH_NOTES, payload})
     }
 
     const addNote = async title => {
@@ -37,10 +39,7 @@ export const FireBaseState = ({children}) => {
                 ...note,
                 id: res.data.name
             }
-            dispatch({
-                type: ADD_NOTE,
-                payload
-            })
+            dispatch({type: ADD_NOTE, payload})
 
 
         } catch(e) {
