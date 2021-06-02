@@ -13,8 +13,8 @@
 
 # misc
 .DS_Store
-src/.env.local
-src/.env.local
+src/.env
+
 .env.test.local
 .env.production.local
 
