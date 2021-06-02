@@ -23,7 +23,6 @@ export const Notes = ({notes, onRemove}) => (
                 </li>
             </CSSTransition>
         ))}
-
     </TransitionGroup>
 
 )

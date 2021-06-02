@@ -6,7 +6,7 @@ export const Navbar = () => (
             Note APP
         </div>
         <ul className="navbar-nav">
-            <li className="nav-item pl-3">
+            <li className="nav-item">
 
                 <NavLink
                     className="nav-link"

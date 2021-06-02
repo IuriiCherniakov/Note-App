@@ -14,7 +14,7 @@ export const Form = () => {
             firebase.addNote(value.trim()).then(() => {
                 alert.show('Note was created', 'success')
 
-            }).catch(()=> {
+            }).catch(() => {
                 alert.show('Something wrong', 'danger')
             })
             setValue('')
