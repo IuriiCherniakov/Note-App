@@ -10,7 +10,7 @@ export const Alert = () => {
         <CSSTransition
             in={alert.visible}
             timeout={{
-                enter: 500,
+                enter: 350,
                 exit: 350
             }}
             classNames={'alert'}
